@@ -45,3 +45,72 @@
 // Q 5 
 // let a = prompt("age?")
 // console.log("you can",(a>18? "drive":"not drive"))
+
+// pratice - 3 loops
+// q 1 wap to print mark of student in an object
+// let mark = {
+//     rohan:80,
+//     anuj:90,
+//     ritik:97
+// }
+// // for(let key in mark){
+// //     console.log("the mark of " + key + "are " + mark[key])
+// // }
+// for(let i = 0 ; i<Object.keys(mark).length ; i++){
+//     console.log("the marks of "+ Object.keys(mark)[i] + "are" + mark[Object.keys(mark)[i]])
+// }
+// question 4 to print try again until user enter the correct Number
+// let n = 9
+// let a
+// a = Number.parseInt(a)
+// while(a!=n){
+//     let a = prompt("enter correct number?")
+//     console.log("try again")
+//     if (a==n){
+//         console.log("correct number")
+//         break;
+//     }
+// }
+// question 5 write a function to find mean of 5 numbers
+// function mean(a,b,c,d,e){
+//     return a+b+c+d+e/5
+// }
+// console.log("mean of 1 2 3 4 5 } is",mean(1,2,3,4,5))
+// from taking input from user
+// imp prompt is always a string so to convert to integer we use Number.parse(a)
+// function mean(x,y,z,w,s){
+//     return (x + y + z + w + s)/5
+// }
+// let a = prompt("enter first number")
+// let b = prompt("enter second number")
+// let c = prompt("enter third number")
+// let d = prompt("enter fourth number")
+// let e = prompt("enter fifth number")
+// a = Number.parseInt(a) 
+// b = Number.parseInt(b) 
+// c = Number.parseInt(c) 
+// d = Number.parseInt(d) 
+// e = Number.parseInt(e) 
+// console.log(`mean of ${a} ${b} ${c} ${d} ${e} is`,mean(a,b,c,d,e)
+
+// pratice - 4
+// question 1
+// console.log("har\"".length)
+// question 2
+// stringvariable.includes(word) gives true or false
+// let a = "time is runing "
+// console.log(a.includes("Time"))
+// console.log(a.includes("time"))
+// variable.startsWith("start word") it also give true or false
+// let a = "time is runing "
+// console.log(a.startsWith("time"))
+// // variable .endsWith("end word") it also give true or false
+// console.log(a.endsWith("runing"))
+// question 3 wap to convert strig to lowercase
+// let a = "Time is Runing "
+// console.log(a.toLowerCase())
+// question 4 extract amount from a
+// let a = "Please give Rs 1000"
+// console.log(a.slice(15,19))
+// // question 5 change 4 th charater of the string
+// console.log(a.replace("1000","10000000"))

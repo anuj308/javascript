@@ -127,7 +127,52 @@
 // let i = 0
 // do{
 //     console.log(i)
-//     i++;
+//     i++;=
 // }while(i<=a)
-
+// 
 // function 
+// function avg(x,y){
+//     return x+y/2
+//     console.log("Done")
+// }
+// let a = 10
+// let b = 14
+// let c = 47
+// console.log("average of a & c is",avg(a,c))
+// console.log("average of a & b is",avg(a,b))
+// console.log("average of b & c is",avg(b,c))
+// 
+// introduction to strings
+// can be made with single - '' , double quote ""
+// index in strings
+// backtic `` imp used when in string hve to use "" or ''
+// let a = 1
+// let b = 3
+// let c = 4
+// let sentence
+// console.log(sentence = `${a} + ${b} = ${c}`)
+// escape sequence charater
+// let an = "can't"
+// // let an = 'can't' show error
+// use backslash before '
+// an = 'can\'t'
+// console.log(an)
+
+// string methods
+// let Name = "  ANUj kumar Sharma"
+// let secondname = "Chotu"
+// console.log(Name.length)
+// console.log(Name.toLowerCase())
+// console.log(Name.toUpperCase())
+// console.log(Name.slice(1,7))
+// console.log(Name.slice(1))
+// console.log(Name.replace(" ","     " ))
+// console.log(Name.replace("A","O" ))
+// console.log(Name.concat("is a ", "full stack devloper"))
+// console.log(Name.trim())
+
+// google the syntax 
+// there are more methods
+// string is immuatable
+
+
