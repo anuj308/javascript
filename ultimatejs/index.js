@@ -176,3 +176,131 @@
 // string is immuatable
 
 
+// Introduction to arrays 
+// are basicly like lists in python 
+// also has indexing 
+// variable.length - no of element present in list
+// add new element - arrays[index]=value
+// change the element also -arrays[ changing element index]=value
+
+// let marks=[98,76,9,26,57,44,52,30,10,80]
+// for (let i=0;i<marks.length;i++){
+//     console.log(marks[i])
+// }
+// methods of arrary
+// 
+
+// let a = [1,2,3]
+// let a1 = [10,11,12,13]
+// // // arrays to string toString
+// // let b=a.toString() 
+// // console.log(b,typeof b)
+// // // to add text between the element
+// let c = a.join(" and ")
+// // console.log(c,typeof c)
+// // // remove a element from last like in this 3 is removed 
+// // a.pop()
+// // // pop return the pop element
+// // d = a.pop()
+// // console.log(c,d)
+// // push return the new element and also push return the new array length
+// let e = a.push(100)
+// console.log(a,e)
+// // shift remove the first element and return it  
+// let f = a.shift()
+// console.log(f,a)
+// // unshift add the new element in beginning and return the array length
+// let g = a.unshift(0)
+// console.log(g,a)
+// // delete delete the operator but the lenght of arrays do not change
+// console.log(delete a[3],a)
+// // concat join arrays
+// let h = a.concat(a1)
+// console.log(h)
+
+// // sort method sort arrays alphabatically and can be compare by a function
+// let compare = (a,b)=>{
+//     return a - b
+// }
+// let num = [ 543,54,487,2,46,98,42]
+// // num.sort()
+// num.sort(compare)
+// console.log(num)
+
+// // reverse
+// num.reverse()
+// console.log(num)
+
+// // splice is used to add element to the arrays
+// // splice(start,no of element to remove,element to add)
+// let num1=[1,243,445,66,78,90,29]
+// // num1.splice(1,2,111,222,333,444) 
+// let removevalues = num1.splice(1,2,111,222,333,444) 
+// console.log(num1)
+// // the remove values is arrray
+// console.log(removevalues)
+// console.log(typeof removevalues)
+
+// // slice num1.slice(start,end) end is not included
+// let num2=[1,243,445,66,78,90,29]
+// num2.slice(2,4)
+// console.log(num2)
+
+// // loops in arrays
+let  num3 = [1 ,23 ,445,78,44,37,98]
+// // for(let i = 0;i<num3.length;i++){
+// //     console.log(num3[i])
+// // }
+
+// // for each
+// num3.forEach((element) => {
+//     console.log(element*element) 
+// });
+
+// // array.from
+// let name = "anuj"
+// let arr= Array.from(name)
+// console.log(arr)
+
+// // for..  of  better than for each or shortcut
+// for(let item of num3){
+//     console.log(item)
+// }
+// // for.. in give then key of num3 array , array is an object 
+// for(let i in num3){
+//     console.log(i)
+// }
+
+
+// // map filter reduce    ----
+// let arr=[23,46,87,29]
+// // arr.map((value)=>{
+// //     console.log(value)
+// // })
+// // in map a new array is made and we can return with adding values 
+// let a = arr.map((value,index,array)=>{
+//     console.log(value,index,array)
+//     // return value + index
+//     return value + 1
+// })
+// console.log(a)
+
+// // array filter method
+// let arr2=[2,9,56,304,30,67]
+// let a2 = arr2.filter((a)=>{
+//     return a>100
+// }) 
+// console.log(a2,arr2)
+
+// // reduce method 
+// let arr3 = [2,34,54,98]
+// // let a3 = arr3.reduce((a1,a2)=>{
+// //     return a1 + a2
+// // })
+// // console.log(a3)
+// // output 188
+// let add = ((a1,a2)=>{
+//         return a1 + a2
+//     })  
+// let a3 = arr3.reduce(add)
+// console.log(a3)

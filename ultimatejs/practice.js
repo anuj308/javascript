@@ -114,3 +114,54 @@
 // console.log(a.slice(15,19))
 // // question 5 change 4 th charater of the string
 // console.log(a.replace("1000","10000000"))
+
+// pratice -5
+
+// quetion 1 to take input from user and add number in the array
+// let a1 = prompt("enter first number")
+// let a2 = prompt("enter second number")
+// let a3 = prompt("enter third number")
+// let a4 = prompt("enter four number")
+// let arr = []
+// let b1 = arr.push(a1)
+// let b2 = arr.push(a2)
+// let b3 = arr.push(a3)
+// let b4 = arr.push(a4)
+// console.log(b1)
+// console.log(b2)
+// console.log(b3)
+// console.log(b4)
+// console.log(arr)
+
+// // question 2 is to add number till 0 is addded , run in web browser
+// let arr = []
+// let a1
+// do{
+//     a1 = prompt("enter first number")
+//     a1=Number.parseInt(a1)
+//     let b1 = arr.push(a1)
+//     console.log(b1)
+// }while(a1!=0);
+// console.log(arr)
+
+// // question 3 filter numberdivisiable by 10 from the array
+
+// let f = arr.filter((n)=>{
+//     w = n%10==0
+//     return w
+// })
+// console.log(f)
+
+// // question 4 create a array of square of given number
+// let arr4 = [3,7,8,6,2,4,9]
+// let q = arr4.map((e)=>{
+//     return e*e
+// }) 
+// console.log(q)
+
+// // question 5 by reduce calculated the factorial of given natural number
+// let arr = [1,2,3,4,5,6]
+// let a = arr.reduce((a1,a2)=>{
+//     return a1*a2
+// })
+// console.log(a)
