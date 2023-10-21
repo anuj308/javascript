@@ -165,3 +165,289 @@
 //     return a1*a2
 // })
 // console.log(a)
+
+
+// // exerice - 1 guess the number from 1 to 100, genarate a ramdom number,score = 100 - (no of guess),program should be terminated once
+// //  the number is guess
+
+// let a = Math.floor(Math.random()*100)+1;
+// let i
+// let n = 0
+// let score
+// do{
+// i = prompt("Guess the number between 1 to 100")
+// i = Number.parseInt(i)
+// if (i==a){
+//     console.log("your Guess is correct")
+// }
+// else{
+//     console.log("your Guess is incorrect")
+// }
+// if (i>a){
+//     console.log("guess is greater than original number ")
+// }
+// else if(i<a){
+//     console.log("guess is less than the original number")
+// }
+// n++
+// score = 100 - n
+// }while(i!=a);
+// console.log(`you have score ${score} points`)
+
+// chapter - 6 
+// // question 1 wap using prompt functionto take input of age as a value from the user and use alert to tell him if
+// // he can drive
+// let d = prompt("what your age?")
+// if(d>18){
+//     alert("you can drive")
+// }
+// else{
+//     alert("you can't drive")
+// }
+
+// question 2 ask i q 1 if user want to see the prompt again by confirm
+// let d = prompt("what your age?")
+// if(d>18){
+//     alert("you can drive")
+// }
+// else{
+//     alert("you can't drive")
+// }
+// let c = confirm("do you want to it again?")
+// if(c){
+//     let d = prompt("what your age?")
+//     if(d>18){
+//         alert("you can drive")
+//     }
+//     else{
+//         alert("you can't drive")
+//     }
+// }
+
+// using loop is best 
+
+
+// let drive = ((age)=>{
+//     return age>=18? true: false
+// })
+
+// let runagain = true
+// while(runagain){
+//     let age = prompt("what is your age?")
+//     if(drive(age)){
+//         alert("you can drive")
+//     }
+//     else{
+//         alert("you can't drive")
+//     }
+//     runagain = confirm("do you want to do it again")  
+// }
+
+// // question 3 log error if age enter is negative
+// let d = prompt("what your age?")
+// if(d<0){
+//     console.error("age can't be  is negative")
+// }
+// if(d>18){
+//     alert("you can drive")
+// }
+// else{
+//     alert("you can't drive")
+// }
+// let c = confirm("do you want to it again?")
+// if(c){
+//     let d = prompt("what your age?")
+//     if(d<0){
+//         console.error("age can't be  is negative")
+//     }
+//     if(d>18){
+//         alert("you can drive")
+//     }
+//     else{
+//         alert("you can't drive")
+//     }
+// }
+
+// let drive = ((age)=>{
+//     return age>=18? true: false
+// })
+
+// or using loop it make program short and better
+
+// let runagain = true
+// while(runagain){
+//     let age = prompt("what is your age?")
+//     if(age<0){
+//         console.error("age can't be negative")
+//     }
+//     if(drive(age)){
+//         alert("you can drive")
+//     }
+//     else{
+//         alert("you can't drive")
+//     }
+//     runagain = confirm("do you want to do it again")  
+// }
+
+// // question 4 is to change the url to google if user enter number greater than 4
+// let n = prompt("enter number")
+// n = Number.parseInt(n)
+// if(n>4){
+//     location.href="https://google.com"
+// }
+
+// // question 5 change the backgroundcolor as user enter the prompt
+// let u = prompt("backgroundcolor(red,yellow,green)-")
+// if(u=="red"){
+//     document.body.style.background="red"
+// }
+// else if(u=="green"){
+//     document.body.style.background="green"
+// }
+// else if(u=="yellow"){
+//     document.body.style.background="yellow"
+// }
+
+
+// exerice 2  snake water gun game
+// use javascript to create a game of snake water & gun.the game should ask you to enter 
+// s ,w , g. the computer should ramdomly generate s ,w ,g and declare win or loss using alert use confirm and promt 
+// when required
+
+// let arr = ['S','W','G']
+// let W = 0
+// let L = 0
+// let D = 0
+// let score
+// let i = 0
+// let a1 = confirm("Do you want to play Snake, Water & Gun")
+// let a2 = prompt("choose Rounds:- 3 or 10")
+// a2 = Number.parseInt(a2)
+// while(i<a2){
+//     let r = arr[Math.floor(Math.random()*arr.length)]
+//     let a = prompt("choose:- Snake - S, Water - W, Gun -G")
+//     if(r=="S" && a=="W"){
+//         alert("You Win")
+//         W++
+//     }
+//     else if(r=="S" && a=="S"){
+//         alert("Draw")
+//         D++
+//     }
+//     else if(r=="S" && a=="G"){
+//         alert("You Lose")
+//         L++
+//     }
+//     if(r=="W" && a=="W"){
+//         alert("Draw")
+//         D++
+//     }
+//     else if(r=="W" && a=="S"){
+//         alert("You Lose")
+//         L++
+//     }
+//     else if(r=="W" && a=="G"){
+//         alert("You Win")
+//         W++
+//     }
+//     if(r=="G" && a=="W"){
+//         alert("You Lose")
+//         L++
+//     }
+//     else if(r=="G" && a=="S"){
+//         alert("You Win")
+//         W++
+//     }
+//     else if(r=="G" && a=="G"){
+//         alert("Draw")
+//         D++
+//     }
+//     alert("Next Round")
+//     i++
+// }
+// score = W + D - L
+// console.log(`Your score is ${score}`)
+
+
+
+// // by function
+// function swg(r,a) {
+//     if (r == "S" && a == "W") {
+//         alert("You Win")
+//         W++
+//     }
+//     else if (r == "S" && a == "S") {
+//         alert("Draw")
+//         D++
+//     }
+//     else if (r == "S" && a == "G") {
+//         alert("You Lose")
+//         L++
+//     }
+//     if (r == "W" && a == "W") {
+//         alert("Draw")
+//         D++
+//     }
+//     else if (r == "W" && a == "S") {
+//         alert("You Lose")
+//         L++
+//     }
+//     else if (r == "W" && a == "G") {
+//         alert("You Win")
+//         W++
+//     }
+//     if (r == "G" && a == "W") {
+//         alert("You Lose")
+//         L++
+//     }
+//     else if (r == "G" && a == "S") {
+//         alert("You Win")
+//         W++
+//     }
+//     else if (r == "G" && a == "G") {
+//         alert("Draw")
+//         D++
+//     }
+// }
+
+// let arr = ['S', 'W', 'G']
+// let W = 0
+// let L = 0
+// let D = 0
+// let score
+// let z = true
+// let a1 = confirm("Do you want to play Snake, Water & Gun")
+// while(z){
+//     let a2 = prompt("choose Rounds:- 3 or 10")
+//     a2 = Number.parseInt(a2)
+//     let i = 0
+//     while (i < a2) {
+//         let r = arr[Math.floor(Math.random() * arr.length)]
+//         let a = prompt("choose:- Snake - S, Water - W, Gun -G")
+//         console.log(swg(r,a))
+//         if (a2 == 3) {
+//             if (i == 2) {
+//                 score = W + D
+//                 alert("3 Rounds are over and Thank you for playing")
+//                 alert(`Your score is ${score}`)
+//                 break;
+//             }
+//             alert("Next Round")
+//         }
+//         if (a2 == 10) {
+//             if (i == 9) {
+//                 score = W + D
+//                 alert(`10 Rounds are over and Your score is ${score}`)
+//                 alert("Thank you for playing")
+//                 break;
+//             }
+//         }
+//         i++
+//     }
+//     score = W + D
+//     console.log(`Your score is ${score}`)
+//     z = confirm("Do you want to play again")
+//     if(false){
+//         break;
+//     }
+// }

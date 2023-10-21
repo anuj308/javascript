@@ -304,3 +304,58 @@ let  num3 = [1 ,23 ,445,78,44,37,98]
 //     })  
 // let a3 = arr3.reduce(add)
 // console.log(a3)
+
+// script two ways
+// 1) script tag 
+// advantages of using separate script file using src attribute of script tag
+// separtion of concerns
+// browser caching 
+// <script src="script.js"></script>
+// <script src="script1.js">
+// console.log("this message will be ingonored ")</script> src file js will be runed 
+// <script src="script2.js"></script>
+// 2) linking of js file
+
+// console method 
+// console.log(console)
+// console.error("this is a error") so it will be displayed in red
+// console.assert(45>53) failed then it show error
+// console.assert(45>20) true then ok 
+// console.clear() - It clear the console 
+// console.table(object) then the object values will be shown in a table 
+// console.warn("do not waste time") it is used to show warning in a code
+// console.info("the text") it is similar to console.log but in this this code will come in info section
+
+// alert , prompt , confirm read notes
+// is not use in fronted as we don't know the exact location of it coming in differnt browser
+// ,we can't modify is much , script is paused so that user can interact - so after a alert prompt confirm then 
+// the js will run, it do not look good also
+// alert("it works")
+// let a = prompt("enter value")
+// document.write(a)
+// prompt is allways a string so to convert to interger write
+// a = Number.parseInt(a)
+// can give a default value to prompt 
+// let b = prompt("enter value","10")
+// confirm
+// let write = confirm("is 2 + 2 is 4")
+// if(write){
+//     document.write("true")
+// }else{
+//     document.write("false")
+// }
+
+// window object method
+// windows.console.log()
+// windows.alert()
+
+// document object model(dom) is the full html document in javascript object -document 
+// can use all css styles by this 
+// document.body - shows th body in an object
+// document.body.style.background="green" it changes the background of the web page
+
+// bowser object model (bom) is the additional object that is provided by the browser(host enviroment)
+// funtion like alert,prompt,confirm are example of it 
+// the host enviroment a give additional object example 
+// location.href="https://isro.gov" 
+
