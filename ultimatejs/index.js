@@ -359,3 +359,23 @@ let  num3 = [1 ,23 ,445,78,44,37,98]
 // the host enviroment a give additional object example 
 // location.href="https://isro.gov" 
 
+
+// chapter - 7 walking the DOM
+// html to js object , 
+// object tree - html document 
+// <html> is root , <head>,<body> etc are it children, <P> , <h1> ,text 
+// types of node
+// 1)text node  is the leaf of the tree, space between element in html are text node
+// 2)element node
+// 3)comment node
+
+// auto correction - browser auto correct if there is a mistake 
+
+// document.body, document.documentElement,document.head give html , head , body tags
+// document.title gives a string
+
+// children of an element
+// element.firstchild() = element.childNodes[0]
+// element.lastChild() = element.childNodes[element.childNodes.length-1]
+//element.childNodes() 
+// childNodes look like a arry but it is not so array method won't work on it  but we can make by array.from()
