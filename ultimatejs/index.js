@@ -247,7 +247,7 @@
 // console.log(num2)
 
 // // loops in arrays
-let  num3 = [1 ,23 ,445,78,44,37,98]
+// let  num3 = [1 ,23 ,445,78,44,37,98]
 // // for(let i = 0;i<num3.length;i++){
 // //     console.log(num3[i])
 // // }
@@ -379,3 +379,65 @@ let  num3 = [1 ,23 ,445,78,44,37,98]
 // element.lastChild() = element.childNodes[element.childNodes.length-1]
 //element.childNodes() 
 // childNodes look like a arry but it is not so array method won't work on it  but we can make by array.from()
+
+// sibling and parent
+// left sibling and right sibling
+// variable=document.body.firstChild
+// varible.parentNode
+// variable.parentElement
+// variable.firstChild.nextSibling
+// here we can getting text,comment ndocument run it 
+// document.body.firstElementchild
+// document.body.lastElementchild
+// document.body.nextElementchild
+// document.body.previousElementchild
+
+// table based navigation
+
+// t= document.body.firstElementChild.firstElementChild
+// console.log(t)
+// console.lof(t.rows)
+// console.lof(t.caption)
+// console.log(t.head)
+// console.log(t.head.firsstElementChild)
+// console.log(t.foot)
+// console.log(t.bodies)
+
+// console.log(t.rows[0].rowIndex)
+// console.log(t.bodies.firstElementChild.cellIndex)notes check it if it work 
+
+
+// searching the Dom
+
+// let id = document.getElementbyId("")
+
+//let ctitle = document.getElementByClassName("")   
+// ctitle.style.color="red"
+
+// document.getElementByName("") name arttribute
+
+// let c = document.querySelector("c")
+
+// let ctitles = document.querySelectorALL("ctitles")
+// ctitles[0].style.color ="red"
+// ctitles[1].style.color ="blue"
+// ctitles[2].style.color ="greeen"
+// console.log(ctitles)
+// document.querySelector("this").style.color=""
+// document.querySelector("this").style.background=""
+// console.log(document.querySelector("card-title").getElementsByTagName("a"))
+
+// // Element - return one Element
+// // elements - return all the element
+// // querySelector - return one element
+// // querySelectorALL - return all element
+
+
+// matches closest and contains 
+
+console.log(Elem.matches("")) 
+// check if the element matches the given css
+console.log(elem.closest(""))
+// look for the nearest ancestor that matches the given selector
+console.log(elem.contains(""))
+// return true if elemB is inside elemA(a descendant of elemA) or when elemA = elemB
