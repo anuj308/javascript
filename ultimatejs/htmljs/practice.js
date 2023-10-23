@@ -26,3 +26,32 @@
 // question 5 what look for the farthest ancestor that matches a given selector
 // closest contains matches none of these
 // answer none of these
+
+// pratice - 8 
+
+// question 2
+// question 3
+// let google= document.getElementById("google")
+// google.addEventListener('click',()=>{
+//     window.location = "https://google.com/"
+// })
+// twitter.addEventListener('click',()=>{
+//     window.location = "https://twitter.com/"
+// })
+// easy.addEventListener('click',()=>{
+//     window.location = "https://www.easemytrip.com/"
+// })
+// travel.addEventListener('click',()=>{
+//     window.location = "https://travellpu.wordpress.com/"
+// })
+// let twitter= document.getElementById("twitter")
+// let travel= document.getElementById("travel")
+// let easy= document.getElementById("easy")
+
+// question 5
+
+// let bulb = document.getElementById("bulb")
+// let btn = document.getElementById("btn")
+// btn.addEventListener('click',()=>{
+//     bulb.classList.toggle("yellow")
+// })
