@@ -1,0 +1,9 @@
+body{
+    margin: 0px;
+    background-color: black;
+}
+.look{
+    color:green;
+    font-size: 50px;
+    margin:10px 20px;
+} 

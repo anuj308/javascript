@@ -264,3 +264,409 @@
 //     // alert("Hello world")
 // }
 // btn.addEventListener('click',s)
+
+
+// chapter - 9 callback , promises , async/await
+
+// // syncornous programing
+// let a = prompt("your name")
+// let b = prompt("your age")
+// console.log(`${a} is ${b} years old.`)
+
+// // asyncornous programing
+// console.log("start")
+// setTimeout(()=>{
+//     console.log("in between")
+// },2000)
+// console.log("end")
+
+// callback function 
+
+
+// function loadscript(src,callback){
+//     script=document.createElement("script")
+//     script.src=src;
+//     document.body.appendChild(script)
+//     script.onload = function(){
+//         console.log(`script loaded ${src}`)
+//         callback(null,src);
+//     }
+//     script.onerror = function(){
+//         console.log(` error loading script ${src}`)
+//         callback(new Error("error loading  script") );
+//     }
+// }
+// function loaded(error,src){
+//     if(error){
+//         console.log(error)
+//         return
+//     }
+//     alert(`loaded src-`+ src)
+
+// }
+// loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',loaded)
+// // error script below
+// // loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/tstrap.bundle.min.js',loaded)
+
+
+// callback hell and pyramid of doom more on this ,if we want to load a script 1 then 2,3,4,5 we write like this 
+// but this is like a pyramid and not readable so  and we are giving all control to chintu what if he write wrong code in function and 
+// for this error is generated then harry will be fired. so we don't use callback all the time  
+// solution -  promises 
+
+// loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//     if(error){
+//         console.log(error)
+//         sendEmergencycalltoceo()
+//         return
+//     } 
+//     loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//         if(error){
+//             console.log(error)
+//             sendEmergencycalltoceo()
+//             return
+//         } 
+//         loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//             if(error){
+//                 console.log(error)
+//                 sendEmergencycalltoceo()
+//                 return
+//             } 
+//             loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//                 if(error){
+//                     console.log(error)
+//                     sendEmergencycalltoceo()
+//                     return
+//                 } 
+//                 loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//                     if(error){
+//                         console.log(error)
+//                         sendEmergencycalltoceo()
+//                         return
+//                     } 
+//                     loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//                         if(error){
+//                             console.log(error)
+//                             sendEmergencycalltoceo()
+//                             return
+//                         } 
+//                         loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//                             if(error){
+//                                 console.log(error)
+//                                 sendEmergencycalltoceo()
+//                                 return
+//                             } 
+//                             loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){
+//                                 if(error){
+//                                     console.log(error)
+//                                     sendEmergencycalltoceo()
+//                                     return
+//                                 } 
+//                                 loadscript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',function loaded(error,src){})
+//                             })
+//                         })
+//                     })
+//                 })
+//             })
+//         })
+//     })
+// })
+
+
+// promise is 'Promise of code execution'
+// in this a promise is made and if it  failed or executed it 
+// resolve , reject predefined in js engine
+// promise is used for parallel execution
+// resolve and reject is the callback provided by javascript they are:-
+// 1)resolve(value) - if job is finished sucessfully 
+// 2)reject(error) - if job is fails
+// promise object return by new new promise constuctor has these properties
+// 1) state - initially pending then change to 'fuilfiled' when resolve is called or 'rejected' when reject is called
+// 2) result - initially undefined then change to value if resolved - resolved(value) or error then reject(error) when rejected  
+
+// promise p is capital after new 
+
+// let promise1 = new Promise(function(resolve,reject){
+//     console.log("promise1 is pending ")
+//     alert("alert in promise1")
+//     setTimeout(()=>{
+//         console.log("i am  set time out in promise1")
+//         resolve(56)
+//     },3000);
+// });
+
+// console.log(promise1)    
+
+// console.log("good morning ")
+
+// let promise2 = new Promise(function(resolve,reject){
+//     alert("alert in promise2")
+//     setTimeout(()=>{
+//         console.log("i am  set time out in promise2")
+//         reject( new Error(" i am a error"))
+//     },4000); 
+// });
+
+// console.log(promise2)
+
+
+// // we can get final result from a promise  then , catch 
+// // then
+// // to get the value
+// promise1.then((value)=>{
+//     console.log(value)
+// })
+// promise1.then(alert);
+
+// // to catch the error
+// // promise2.catch((error)=>{
+// //     console.log("it  a small error")
+// // })
+// // promise2.catch(alert); ...
+
+// in .then() also can catch error if we write error function   
+
+
+// promise chaining 
+// .then() add one more promise in it 
+// we can write custom promise also  and every .then() has resolve of new promise 
+
+// promise2.then((value)=>{
+//     console.log(value)},(error)=>{
+//     console.log(error)
+//             return new Promise((resolve,reject)=>{
+//                 console.log("chaining")
+//                 resolve(56)})
+// }).then((value)=>{
+//     console.log(value)
+//     return 3
+// }).then((value)=>{
+//     console.log(value)
+//     console.log("we are done ")})
+
+// quiz loadscript from promise
+
+// const loadscript=(src)=> {
+//     return new Promise((resolve,reject)=>{
+//         let script = document.createElement("script")
+//         script.type="text/javascript"
+//         script.src=src 
+//         document.body.appendChild(script)
+//         script.onload = ()=>{
+//             resolve("script loaded")} 
+//         script.onerror = ()=>{
+//             reject(0)}
+//     })
+// }
+
+// let p1 = loadscript("https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js")
+
+// p1.then((value)=>{
+//     console.log(value)
+//     return loadscript("https://code.jquery.com/jquery-3.3.1.slim.min.js")
+// }).then((value)=>{
+//     console.log("second script loaded")
+// }).catch((error)=>{
+//     console.log(error)
+//     console.log(" it is an error")
+// })
+
+
+// multiple handler in promise 
+// all handler run independently
+
+// let p1 = new Promise((resolve,reject)=>{
+//     console.log("query is pending ")
+//     setTimeout(()=>{
+//         console.log("it is resolved")
+//         resolve(1)
+//     },3000)
+// })
+
+// p1.then((value)=>{
+//     console.log(value)
+//     alert("resolved")
+// })
+
+// p1.then(()=>{
+//     alert("yeah")
+// })
+
+
+// promise API
+
+// 1) promise.all([])
+
+// let p1 = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             // resolve("promise 1 resolved")
+//             reject(new Error("promise 1 iis having a error"))
+//         },1000)
+//     }
+// )
+// let p2 = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve("promise 2 resolved")
+//         },2000)
+//     }
+// )
+// let p3 = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve("promise 3 resolved")
+//         },3000)
+//     }
+// )
+// // let promise_all = Promise.all([p1,p2,p3])
+// // promise_all.then((value)=>{
+// //     console.log(value)
+// // })
+
+// // but if  in one promise a rejected is then promise_all will shown error and it won't show other promise value 
+
+// // promise.allSettled() will give indiviual status and value
+// // let promise_all = Promise.allSettled([p1,p2,p3])
+// // promise_all.then((value)=>{
+// //     console.log(value)
+// // })
+
+// // promise.race() in this which ever promise resolved first will be displyed
+// // let promise_all = Promise.race([p1,p2,p3])
+// // promise_all.then((value)=>{ 
+//     //     console.log(value)
+//     // })
+    
+// // promise.resolve()
+
+// // let a1 = Promise.resolve(6)
+// // a1.then((value)=>{
+// //     console.log(value)
+// //     })
+
+// // promise.reject
+
+// // let a2 = Promise.reject( new Error("a2 reject error"))
+
+// // promise.any() - wait for the first promise to get resolved and if its not error then it is the outcome anf if its error then check scecond 
+// // promise similarly and if all promise are error then gives aggregate error
+
+// let promise_all = Promise.any([p1,p2,p3])
+// promise_all.then((value)=>{
+//     console.log(value)
+//     }) 
+
+// async / Await
+
+// async can make any function a promise 
+// by using await we can pause the function until the promise is fullfiled - can be used in the case 
+// example
+// async function anuj(){
+//     let delhiweather = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve("delhi 27 deg")
+//         },2000)
+//     })
+    
+//     let bangoloreweather = new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve("bangolore 21 deg")
+//         },4000)
+//     })
+//     // delhiweather.then(alert)
+//     // bangoloreweather.then(alert)
+//     console.log("feacthing delhi weater please wait....")
+//     let delhiW = await delhiweather
+//     console.log("fetched delhi weater" + delhiW)
+//     console.log("feacthing bangolore weater please wait....")
+//     let bangoloreW = await bangoloreweather
+//     console.log("fetched delhi weater" + bangoloreW)
+//     return[delhiW,bangoloreW]
+// }
+// console.log("Bharat weather station")
+// // anuj()
+
+// // anuj().then((value)=>{
+// //     console.log(value)
+// // })
+// const cherry = async ()=>{
+//     console.log("i am cherry function")
+// }
+
+// const main9 = async ()=>{
+//     let a = await  anuj()
+//     let b = await cherry()
+// }
+// main9()
+
+
+// // error handling in javascript 
+// // there is an error then we can catch it so script won't stop because of error 
+// // the error will be a console log statement 
+
+// // try catch syntax
+// try{
+//     console.log(Time)
+// }
+// catch(error){
+//     console.log(error)
+//     console.log("it a small error")
+// }
+
+// // it work like this 
+// // 1)first the code in try is executed 
+// // 2)if there is no error,catch is ignored else catch is executed
+
+// // try catch works synchronously
+// // if an exception happens in scheduled code,like in setTimeout(),then try..catch won't catch it 
+// // because the function itself is executed later,when the engine has already left try ..contruct
+// try{
+//     setTimeout(()=>{
+//         console.log(Time)
+//     },1000)
+// }
+// catch(error){
+//     console.log(error)
+//     console.log("it a small error")
+// }
+
+
+// error object 
+
+// try{
+//     time
+// }
+// catch(error){
+//     console.log(error)
+//     console.log(error.name)
+//     console.log(error.message)
+// }
+// we can throw our own custom error by throw syntax
+// search error in javascript mdn - there are many error 
+
+// const f = ()=>{
+// try{
+//     let a = 0;
+//     // throw new Error("this is a error so  ")
+//     // throw new ReferenceError("this is a an refrence error and it written in meassage  ")
+//     // console.log(p)
+//     return 
+// }
+// catch(error){
+//     console.log(error)
+//     console.log(error.name)
+//     console.log(error.message)
+//     console.log(error.stack)
+// }
+// finally{
+//     console.log("close the file")
+//     // exit the loop
+//     // write in log file
+// }
+// }
+// f()
+// console.log("end")
+
+// finally will run after try catch and if it exixt it will run  in all cases: like
+// after try if there were no error , after catch if there are error 
+// if there is an error in catch then program should stop but finally will be runed
+// if there is retun in try ,finally is executed just before the control return to outer code
+

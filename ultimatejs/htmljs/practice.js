@@ -55,3 +55,91 @@
 // btn.addEventListener('click',()=>{
 //     bulb.classList.toggle("yellow")
 // })
+
+
+
+// pratice - 9
+
+// // question 1 loadscript function from promise and use .then() to display an alert
+// const loadscript = async (src) =>{
+//     return new Promise((resolve,reject)=>{
+//        let script = document.createElement("script")
+//        script.src=src
+//        script.onload = ()=>{
+//         resolve(src)
+//        }
+//        document.body.appendChild(script)
+//    })
+// }
+
+// const work2 = async ()=>{
+//     let a = await loadscript("https://code.jquery.com/jquery-3.3.1.slim.min.js")
+//     console.log(a)
+// }
+// work2()
+
+// question - 2 same with async and await
+
+// question 3 create promise which reject after 3 seconds use an async/await to get its value use a try catch to handle its error
+// let p = () => {
+//     return new Promise((_resolve, reject) => {
+//         setTimeout(() => {
+//             reject(new Error("its an error"))
+//         }, 3000)
+//     })          
+// }
+// let worl = async () => {
+//     try {
+//         let x = await p()
+//         console.log(x)
+//     }
+//     catch (err) {
+//         console.log(err)
+//         console.log("over")
+//     }
+// }
+// worl()
+
+// question 4  write a program using promise.all() inside an async/await to await 3 promise. compare its results with the case where we await 
+// these promise one by one.
+
+
+let p1 = async () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(1)
+        }, 1000)
+    })
+}
+
+let p2 = async () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(2)
+        }, 2000)
+    })
+}
+let p3 = async () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(3)
+        }, 2000)
+    })
+}
+const p = async () => {
+    // console.time("p")
+    // let p12 = await p1() //fetch 10 product from database
+    // let p22 = await p2() //fetch 10 more
+    // let p32 = await p3() //fetch yet another 10 more
+    // console.log(p12, p22, p32)
+    // console.timeEnd("p")
+    console.time("p")
+    let p12 = p1()
+    let p22 = p2()
+    let p32 = p3()
+    let p1p2p3 = await Promise.all([p12,p22,p32])
+    console.log(p1p2p3)
+    console.timeEnd("p")
+    // Promise.all([p1,p2,p3])
+}
+p()
