@@ -203,7 +203,7 @@
 // setTimeout(sum,2000,2,3,4) 
 // setInterval(sum,2000,2,3,4) means to run it in every 2000 mili second or 2 seconds
 //let time =  setInterval(sum,2000,2,3,4) 
- 
+
 // clearTimeout(a) is used to cancel the executing in case we change our mind
 // clearTimeout(a)
 
@@ -534,7 +534,7 @@
 // // promise_all.then((value)=>{ 
 //     //     console.log(value)
 //     // })
-    
+
 // // promise.resolve()
 
 // // let a1 = Promise.resolve(6)
@@ -565,7 +565,7 @@
 //             resolve("delhi 27 deg")
 //         },2000)
 //     })
-    
+
 //     let bangoloreweather = new Promise((resolve,reject)=>{
 //         setTimeout(()=>{
 //             resolve("bangolore 21 deg")
@@ -649,7 +649,7 @@
 //     // throw new ReferenceError("this is a an refrence error and it written in meassage  ")
 //     // console.log(p)
 //     return 
-// }
+// } 
 // catch(error){
 //     console.log(error)
 //     console.log(error.name)
@@ -669,4 +669,183 @@
 // after try if there were no error , after catch if there are error 
 // if there is an error in catch then program should stop but finally will be runed
 // if there is retun in try ,finally is executed just before the control return to outer code
+
+
+// chapter - 10  network request and storing data 
+
+// fetch api
+// here fetch give a promise , p is promise
+// we use fetch to get or send data from network
+// we can get data in one form only or we can use only one body reading method like .json() - parse the information as json,
+// response.text()- read and return the text
+// , response.formData(),response.blob(),
+
+// response headers - response.headers
+// resuest headers - is in option -
+
+// syntax of fetch api is fetch(url,options)
+
+// let p = fetch('https://api.weatherbit.io/v2.0/current?lat=35.7721&lon=-78.63861&key=XXX&units=I')
+// p.then((response)=>{
+//     console.log(response.status)
+//     console.log(response.ok)
+//     console.log(response.headers)
+//     return response.json()
+// },{headers:{
+//     Authentication:'secret'
+// }}).then((value)=>{
+//     console.log(value)
+// })
+
+// post request in fetch 
+
+// // in option use method: POST
+// json.stringify() - javascript object to string
+// json.parse()
+
+// let options = {
+//     method: 'POST',
+//     headers: {
+//         "content-type": "application/json"
+//     },
+//     body: JSON.stringify({
+//         title: 'growth',
+//         body: 'jObs',
+//         userId: 178,
+//     })
+// }
+
+// fetch('https://jsonplaceholder.typicode.com/posts', options)
+//     .then((response) => response.json())
+//     .then((json) => console.log(json));
+
+// now in async function 
+
+// const createtodo = async (todo) => {
+//     let options = {
+//         method: "POST",
+//         headers: {
+//             "content-type": "application/json"
+//         },body: JSON.stringify(todo)        
+//     }
+//     let p = await fetch('https://jsonplaceholder.typicode.com/posts', options)
+//     response = await p.json(todo)
+//     return response
+// }
+// const getTodo = async (id)=>{
+//     let u = await fetch('https://jsonplaceholder.typicode.com/posts/' + id)
+//     let l = await u.json()
+//     return l 
+// }
+// const mainfunc = async ()=>{
+//     let todo = {
+//         title: 'growth',
+//         body: 'jObs',
+//         userId: 178,
+//     }
+//     let todr = await createtodo(toodo)
+//     console.log(todor)
+//     console.log( await getTodo(5))
+// }
+
+// mainfunc()
+
+// cookie in javascript
+// it is a small string of data stored directly in the browser
+
+// we can acces cookie by typing in console alert(document.cookie) - contains key=value pairs delimited by a ';'
+
+// cookie are set by web browser using set - cookie HTTP-header. next time when the request is sent to the same domian,the browser send 
+// the cookie using the cookie HTTP-header . that way the server knows who sent the request
+
+// document.cookie="name=anuj986"
+// document.cookie="name2=anuj9345886"
+// console.log(document.cookie)
+
+// the write operation doesn't touch other cookies.
+// data store in key , values pair separeted with ';'
+
+// let k = prompt("enter key")
+// let v = prompt("enter values")
+// document.cookie=`${encodeURIComponent(k)}=${encodeURIComponent(v)}`
+// console.log(document.cookie)
+
+// by this special charater are encoded 
+// encodeuricomponent() - to emcode
+// decodeuricomponent()- to decode 
+
+// cookie options - are several option which are provided after key = value to set call like this 
+
+// document.cookie("user=aandjs;path=/a;expires=Tue,29 dec 09:23:34 GMT")
+
+// Note
+// 1) the name= value pair , after encodeURIcomponent,should not exceed 4kb
+// 2) the total no of cookie is limited to 20 +(exact number is browser dependent)
+
+
+// local storage - 
+// is a web storage object which are not sent to server with each request
+// this data survives a full page refresh and even a full browerser restart
+
+// localStorage.setItem("name","javascript")
+
+// let key=prompt("enter key for localstorage")
+// let value=prompt("enter values for localstorage")
+
+// localStorage.setItem(key,value)
+
+// console.log(`the value of ${key} is ${localStorage.getItem(key)}`)
+
+// if(key=="red" || key=="blue"){
+//     localStorage.removeItem(key)
+// }
+
+// if(key==="0"){
+//     localStorage.clear()
+// }
+
+// console.log(localStorage.length)
+
+// // console.log(localStorage.key(index))
+// console.log(localStorage.key(1))
+// console.log(localStorage.key(2))
+// console.log(localStorage.key(3))
+
+// // we can get or set value like an object
+// localStorage.one=1
+// alert(localStorage.one)
+// delete localStorage.one
+
+// note
+// 1)both key and value must be string
+// 2) we can use two JSON method to store object in javascript
+// JSON.stringify(object) - convert object to JSON string
+// JSON.parse(string) - convert string to object(must be a valid json)
+
+
+// session storage
+
+// use less than localstorage. propertiea and method are same but
+// 1)The sessionstorage exixts only within the current browser tab another tab with same page will have a different storage
+// 2)data survives page refersh, but not closing/opening the tab
+
+// sessionStorage.clear()
+// sessionStorage.setItem("name","sun")
+// sessionStorage.removeItem("name")
+// sessionStorage.getItemItem("name")
+
+// Storage event
+// when data get updated in localstorage or sessionstorage, storage event triggers with these properties:
+// 1)key - 
+// 2)old value - previous value
+// 3)new value - new value
+// 4)url - page url
+// 5)storagearea- local or session storage
+
+// we can listen the onstorage event of window which is triggred when update are made to same storage
+
+// window.onstorage = (e)=>{
+//     alert("changed")
+//     console.log(e)
+// }
 

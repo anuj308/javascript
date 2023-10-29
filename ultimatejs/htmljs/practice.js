@@ -104,42 +104,84 @@
 // these promise one by one.
 
 
-let p1 = async () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(1)
-        }, 1000)
-    })
-}
+// let p1 = async () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(1)
+//         }, 1000)
+//     })
+// }
 
-let p2 = async () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(2)
-        }, 2000)
-    })
-}
-let p3 = async () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(3)
-        }, 2000)
-    })
-}
-const p = async () => {
-    // console.time("p")
-    // let p12 = await p1() //fetch 10 product from database
-    // let p22 = await p2() //fetch 10 more
-    // let p32 = await p3() //fetch yet another 10 more
-    // console.log(p12, p22, p32)
-    // console.timeEnd("p")
-    console.time("p")
-    let p12 = p1()
-    let p22 = p2()
-    let p32 = p3()
-    let p1p2p3 = await Promise.all([p12,p22,p32])
-    console.log(p1p2p3)
-    console.timeEnd("p")
-    // Promise.all([p1,p2,p3])
-}
-p()
+// let p2 = async () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(2)
+//         }, 2000)
+//     })
+// }
+// let p3 = async () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(3)
+//         }, 2000)
+//     })
+// }
+// const p = async () => {
+//     // console.time("p")
+//     // let p12 = await p1() //fetch 10 product from database
+//     // let p22 = await p2() //fetch 10 more
+//     // let p32 = await p3() //fetch yet another 10 more
+//     // console.log(p12, p22, p32)
+//     // console.timeEnd("p")
+//     console.time("p")
+//     let p12 = p1()
+//     let p22 = p2()
+//     let p32 = p3()
+//     let p1p2p3 = await Promise.all([p12,p22,p32])
+//     console.log(p1p2p3)
+//     console.timeEnd("p")
+//     // Promise.all([p1,p2,p3])
+// }
+// p()
+
+
+// pratice - 10 
+
+// question - 1
+// coding contest website in exersice
+
+// question -2  create a note saving app which stores your note to localstorage
+// let a = true
+// while (a) {
+//     let note_name = prompt("Enter the Note title")
+//     let note = prompt("Enter the Note")
+//     console.log(localStorage.setItem(note_name, note))
+//     let w = localStorage.getItem(note_name)
+//     // alert(`your note is ${w}`)
+//     // console.log(w)
+//     // console.log(localStorage)
+//     let a = confirm("Do you want to write another Note?")
+//     if(a){
+//         continue
+//     }
+//     else{
+//         break;
+//     }
+// }
+
+// question -3  repeat last question and fetch  the note which was saved
+// question -4 is to delete the note in previous question
+
+let n = localStorage.getItem("note")
+alert("your note is " + n)
+
+let p = prompt("Enter your note")
+if(p){
+    localStorage.setItem("note",p)
+    let d = confirm("Do you want to delete the note?")
+    if(d){
+        console.log(localStorage.removeItem("note"))
+        alert("Note deleted Succesfully")
+    }
+} 
+

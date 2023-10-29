@@ -1,0 +1,86 @@
+*{
+    margin:0px; 
+}
+body{
+    margin:0px;
+    background-color: aquamarine;
+
+}
+/* navbar */
+nav{
+    background-color: rgb(85 223 177);
+    justify-content: center; 
+    padding: 10px 20px; 
+}
+#navbar{
+    float:right;
+    list-style: none;
+    display: flex;
+    flex-direction: row;    
+    margin:10px 0px;        
+}
+#navbar li a{
+    padding:10px 30px;
+    margin:0px 0px;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid black;
+    color:black;
+}
+#navbar li a:hover{
+    background-color: rgb(35 187 136);
+}
+.heading{
+    font-size: 30px;
+    text-decoration: none;
+    color:black;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 50px;
+    background-color: aquamarine;
+}
+#main div{
+    justify-content: center;
+    align-items: center;
+
+}
+#cards{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#cards img{
+    height:150px;
+    width: 100%;
+}
+.cards{
+    margin:20px 20px;
+    border: 5px solid rgb(85 223 177);
+}
+.card-body{
+    padding: 10px 10px;
+    line-height: 25px;
+}
+.card-body a{
+    text-decoration: none;
+    background-color: rgb(35 187 136);
+    color:black;
+    padding: 5px 5px;
+    /* margin: 10px 5px; */
+    border-radius: 7px;
+}
+.card-title{
+    font-size: 19px;
+    color: rgb(9, 49, 36);
+}
+footer{
+    background-color: rgb(85 223 177);
+}
+
+/* utilities classes */
+.center{
+    text-align: center;
+}
