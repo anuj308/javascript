@@ -849,3 +849,420 @@
 //     console.log(e)
 // }
 
+
+// chapter - 11   object oriented programing 
+
+// is for make thinks easier
+// four pillar:-
+// abstraction- hiding of internal detail like in a mixer don't worry about how it work but when you call runmixer it will work
+// encapsulation - combining multiple thing in one entity
+// inheritance - you know
+// polymorphism - one thing has many form
+
+// prototypes and inheritance
+
+// in programming we often take something and then extend t. for example we might want to create a user  object and "admin" and "guest" will
+// be slightly modified variants of it
+
+// prototypes
+// js object have a special property called prototype that is either null or  reference another object
+
+// when we try to read a property from a prototype and its missing , javascript automatically takes it  from the prototype. this is called
+// "prototype inheritance"
+// let o = {
+//     name:"anuj",
+//     language:"javascript",
+//     run:()=>{
+//         alert("self run")
+//     }
+// }
+// console.log(o)
+
+// let p = {
+//     run:()=>{
+//         alert("run")
+//     }
+// }
+// o.__proto__= p
+// p.__proto__ = {
+//     name1:"tanu"
+// }
+// console.log(o.name)
+// console.log(o.name1)
+// o.run()
+
+
+// // classes and object
+// //   a class is an extensiable program-code trmplate for 'creating object
+// // syntax 
+// class RailwayForm{
+//     submit(){
+//         alert( this.Name + " your form is submitted for train no : "+ this.trainno)
+//     }
+//     cancel(){
+//         alert(this.Name + " your form is cancelled for train no : "+ this.trainno)
+//     }
+//     fill(givenname,trainno){
+//         this.Name= givenname
+//         this.trainno = trainno
+//     }
+
+// }
+// let anujForm = new RailwayForm()
+// let ritikForm = new RailwayForm()
+
+// // forms to fill for anuj
+// anujForm.fill("anuj",134344)
+// ritikForm.fill("ritik",189944)
+// anujForm.submit()
+
+// // forms to fill for ritik
+// ritikForm.submit()
+// ritikForm.cancel()
+
+// construtor 
+// it is called eveytime a object is runed
+// every class has a construtor
+
+// read mdn docs for more info and knowledge
+
+// class RailwayForm{
+//     constructor(givenName,trainno,address){
+//         this.Name= givenName
+//         this.trainno = trainno
+//         this.address = address
+//     }
+//     submit(){
+//         alert( this.Name + " your form is submitted for train no : "+ this.trainno)
+//     }
+//     cancel(){
+//         this.trainno = 0
+//         alert(this.Name + " your form is cancelled for train no : "+ this.trainno)
+//     }
+//     preview(){
+//         alert(this.Name + " your form has train no " + this.trainno + " and your address is " +this.address) 
+//     }
+
+
+// }
+// let anujForm = new RailwayForm("anuj",346447,"costa vihar , odisha - 547896")
+// let ritikForm = new RailwayForm("ritik",67890,"bihar - 788115")
+
+
+// // no need to fill forms 
+// // anujForm.fill()
+
+// // forms for ritik
+// ritikForm.preview()
+// ritikForm.submit()
+// ritikForm.cancel()
+// ritikForm.preview()
+
+// inheritance & extends keywords
+// // class inheritance is a way for one class to extend another class. this is done by using the extends keywords
+
+// // extend keyword is used to extend another class
+// //              class child extends parent
+
+// class animal{
+//     constructor(Name,color){
+//         this.Name = Name
+//         this.color = color
+//     }
+//     shout(){
+//         console.log(`${this.Name} is shouting`)
+//     }
+//     run(){
+//         console.log(`${this.Name} is runing `)
+//     }
+// }
+
+// class Monkey extends animal{
+//     eatbanana(){
+//         console.log(`${this.Name} is eating banana`)
+//     }
+// }
+// class puppy extends animal{
+//     bark(){
+//         console.log(`${this.Name} is barking`)
+//     }
+// }
+// let m = new Monke("shy","white") 
+// m.shout()
+// m.run()
+// m.eatbanana()
+// let p = new puppy("tiger","black")
+// p.shout()
+// p.run()
+// p.bark()
+
+// method overriding - if we create our own implementation of run, it will not  be taken from the animal class
+// this is called method overriding
+
+// super keyword - when we override a method, we don't want the method of the previous class to go in vain 
+// we can execute  it using  super keyword
+
+// another example - 
+
+// // overriding constructor - if a class extends another class and has no construtor,then below constructor is auto generated
+// // construtor in inheriting classes must call super(...) and do it  before using this 
+// // we can also use super.method() in a child method to call parent method
+// class employee {
+//     constructor(name){
+//         this.name = name
+//         console.log(`${name} programer is here`)
+//         // console.log(`employconstructor is here`)
+//     }
+//     login() {
+//         console.log(`Employee has logged in `)
+//     }
+//     logout() {
+//         console.log(`Employee has logged out`)
+//     }
+//     requestleaves(x) {
+//         console.log(`Employee has requested ${x} leaves - Auto approved`)
+//     }
+// }
+// class programer extends employee {
+//     // constructor(...args){ -- if there is no constructor i the  child class, this is created automatically
+//     //     super(...args)
+//     // }
+//     constructor(name){
+//         super(name)
+//         console.log(`this is a newly writen constructor`)
+
+//     }
+
+//     requestleaves(x) {
+//         // console.log(`Employee has requested ${x+1} leaves`)
+//         super.requestleaves(x+1)
+//         console.log(`one extra`)
+//     }
+// }
+
+// let a = new programer("anuj")
+// a.login()
+// a.logout()
+// a.requestleaves(3)
+
+// static methods
+// it is used to implement function that belong to a class as a whole  and not to any particular object
+// static method is not available for individual objects
+
+// class animal{
+//     constructor(Name){
+//         this.Name = animal.capitalize(Name)
+//     }
+//     run(){
+//         console.log(`${this.Name} is runing `)
+//     }
+//     static capitalize(Name){
+//         return Name.charAt(0).toUpperCase() + Name.substr(1,Name.lenght)
+//     }
+// }
+
+// let b = new animal("yash")
+// b.run()
+
+// getter & setters
+// classes may include getter and setter to get & set the computer properties
+
+// class Animal{
+//     constructor(Name){
+//         this._name = Name
+//     }
+//     fly(){
+//         console.log(`i am flying`)
+//     }
+//     get Name(){
+//         return this._name
+//     }
+//     set Name(newName){
+//         this._name = newName
+//     }
+// }
+
+// let f = new Animal("jack")
+// f.fly()
+// console.log(f.Name)
+// f.Name ="bruno"
+// console.log(f.Name)
+
+// let e = 454
+
+// class dog extends Animal{
+//     bark(){
+//         console.log("barking ")
+//     }
+// }
+// let y = new dog()
+
+// // instances of 
+// // the instances of operator allows to check whether an object belongs to a certain class
+// // syntax  (object instanceof class)
+// // it returns true if obgject belongs to the class or any other class inheriting from it 
+// console.log(f instanceof Animal)
+// console.log(y instanceof Animal)
+// console.log(e instanceof Animal)
+
+
+// chapter - 12 advanced javascript
+// there are  some javascript  concepts  which made the life of a devloper extremly simple. we will dicuss some of those in this chapter
+// IIFE - immediately invoked function expression is a javascript function that run as soon as it is defined
+
+// let p = ()=>{
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(446)
+//         },3000)
+//     })
+// }
+// (async ()=>{
+//     let a = await p()
+//     console.log(a)
+//     let b = await p()
+//     console.log(b)
+// })();
+
+// destructuring 
+
+// let arr = [2, 3, 4, 9, 7,89,65]
+
+// let [a,b,c]= arr
+// let [a, b, c, ...rest] = arr
+// let [a, , , ...rest] = arr
+// let [a, ,b , ...rest] = arr
+
+// console.log(a,b, rest)
+
+// global and local scope
+
+// hositing in js
+// hoisting refer to the process where by the interpreter apperars to move the declaration to the top of the code 
+// before execution
+// javascript hoist declaration, not initialization so the variable will be undefined until the line where its initialise reach   
+// it work in var but not in let, const
+// in var variable is hosited
+// the function will work as all the 
+
+// console.log(a)
+// greet()
+// function greet(){
+//     console.log("Good morning ritik")
+// }
+// var a = 9;
+// console.log(a)
+
+
+// function expression and class expresion are not hoisted down will not work for let,const,var
+// greet()
+// var greets = function(){
+//     console.log("Good morning ritik")
+// }
+
+// ---------------------------------------------------------------------------------------------------------
+// so to avoid bugs allways declare all variable at the beginning of every scope
+// -------------------------------------------------------------------------------------------------
+
+
+// closures imp
+// it is a function with its lexical environment
+
+// function ritik() {
+//     var name = 'ritik';//name is a local variable created by ritik
+//     function displayname() {
+//         // displayname is a inner function,closure
+//         console.log(name); //use variable declared in parent function
+//     }
+//     // name = "anuj"
+//     return displayname;
+// }
+// let r = ritik()
+// r()
+
+// function returnfun() {
+//     const x = () => {
+//         a = 1
+//         console.log(a)
+//         const y = () => {
+//             a = 2
+//             console.log(a)
+//             const z = () => {
+//                 a = 3
+//                 console.log(a)
+//             }
+//             z()
+//         }
+//         y()
+//     }
+//     return x
+// }
+// q = returnfun()
+// q()
+
+
+// // arrow function   more 
+
+ 
+// // const sayHello = ()=>{
+// //     console.log("Hello")
+// // }
+// // without brackets as it is in line
+// const sayHello = (name)=> console.log("Hello "+ name);
+
+// sayHello("anuj",)
+
+// // this will not work
+// const t = {
+//     name:"Anuj",
+//     role:"js developer",
+//     exp:200,
+//     show: function(){
+//         setTimeout(function(){
+//             console.log(this) // gives a window object this.name will not work
+//             console.log(`The name is ${this.name}\n The role is ${this.role}`)
+//         },2000)
+//     }
+// }
+// t.show()
+// // but arrow function has "lexcical this" that why in "this" it will take this from parent
+// const x = {
+//     name:"Anuj",
+//     role:"js developer",
+//     exp:200,
+//     show: function(){
+//         setTimeout( ()=>{
+//             console.log(`The name is ${this.name}\n The role is ${this.role}`)
+//         },2000)
+//     }
+// }
+// x.show()
+
+
+// js in backend
+// npm , yarn is a packages manager
+
+// npm init
+// node modules - contains all the modules
+// packages.json - store alll the detail of dependency
+// npm install node modules -- npm will install all the modules writen in packages.json
+
+// there are many modules in node js 
+// npm i pdf-node
+
+// modules in js
+
+// modules.export
+
+// express in js
+
+// regular expression in js 99 video
+// regexr.com
+
+// const regex = /very/g
+// const text = "very IS  very" 
+// console.log(text.replace(regex,"VERY"))
+
+// there is more go to website and video
+
+// event  loop  - watch video

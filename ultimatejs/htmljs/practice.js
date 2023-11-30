@@ -172,16 +172,163 @@
 // question -3  repeat last question and fetch  the note which was saved
 // question -4 is to delete the note in previous question
 
-let n = localStorage.getItem("note")
-alert("your note is " + n)
+// let n = localStorage.getItem("note")
+// alert("your note is " + n)
 
-let p = prompt("Enter your note")
-if(p){
-    localStorage.setItem("note",p)
-    let d = confirm("Do you want to delete the note?")
-    if(d){
-        console.log(localStorage.removeItem("note"))
-        alert("Note deleted Succesfully")
-    }
-} 
+// let p = prompt("Enter your note")
+// if(p){
+//     localStorage.setItem("note",p)
+//     let d = confirm("Do you want to delete the note?")
+//     if(d){
+//         console.log(localStorage.removeItem("note"))
+//         alert("Note deleted Succesfully")
+//     }
+// } 
 
+// pratice - 11
+
+// // question 1 is to create a javascript class to create a complex number. create  a constructor to set 
+// // the real and complex part
+// // question -2 write a method to add two complex number in the above class
+// question - 5 use getters & setters to set and get the real and imaginary parts of the complex number
+// class complex_number {
+//     constructor(real, imaginary) {
+//         this._real = real
+//         this._imaginary = imaginary
+//     }
+//     get real() {
+//         return this._real
+//     }
+
+//     get imaginary() {
+//         return this._imaginary
+//     }
+
+//     set real(newreal) {
+//         this._real = newreal
+//     }
+//     set imaginary(newimaginary) {
+//         this._imaginary = newimaginary
+//     }
+
+//     add(num) {
+//         this._real = this._real + num.real
+//         this._imaginary = this._imaginary + num.imaginary
+//         console.log(`the addition of complex number is ${this._real} + ${this._imaginary}i`)
+
+//     }
+// }
+
+// let first_number = new complex_number(23, 5)
+// let second_number = new complex_number(3, 8)
+// console.log(first_number.real,first_number.imaginary)
+// first_number.real = 10
+// first_number.imaginary = 10
+// first_number.add(second_number)
+
+// console.log(`${first_number.real} + ${first_number.imaginary}i`)
+
+
+// question 3 create a class student from a class human override  a method & see changes
+
+// class human{
+//     constructor(name){
+//         this.name = name
+//     }
+//     eat(){
+//         console.log(`${this.name} is eating`)
+//     }
+//     sleep(){
+//         console.log(`${this.name} is sleeing`)
+//     }
+//     play(x){
+//         console.log(`${this.name} is playing for ${x} hrs`)
+//     }
+// }
+
+// class student extends human{
+//     self_study(){
+//         console.log(`${this.name} is doing self study`)
+//     }
+//     lecture(){
+//         console.log(`${this.name} is attending lectures`)
+//     }
+//     play(x){
+//         console.log(`${this.name} is playing for ${x - 1} hrs`)
+//     }
+// }
+
+// let m = new student("mohit")
+// m.play(4)
+
+// // question 4 see if student is an instance of human using instanceof keyword
+// console.log(m instanceof human) 
+
+
+
+// practice set 12
+
+// question 1
+// write a program to print the following after 2 seconds delay
+// Hello
+// world
+
+
+// const set = function(){
+//     setTimeout(()=>{
+//         console.log("Hello\nWorld")
+//     },2000)
+// }
+// set()
+
+
+// // question 2
+// // write a js program to find average of numbers in an arrary using spread syntax
+
+// let arr = [1,24,5,6,4,33]
+// let d = arr.length
+
+// let  avg  = async (...arr)=>{
+//     return new Promise((req,res)=>{
+//         let c = 0
+//         for (i=0;i<d;i++){
+//             c = c + i
+//         }
+//         // console.log(c)
+//         // console.log(d)
+//         console.log(c/d)
+//     })
+// }
+// let x = async ()=>{
+//     let c = await avg()
+//     console.log(c)
+// }
+// x()
+
+// question 3
+// write a js function which resolve a promise after n seconds.the function takes n as the parameter use an iife to execute the function 
+// with different values of n
+
+// let s = async (n)=>{
+//     return new Promise((req,res)=>{
+//         setTimeout((req,res)=>{
+//             console.log("i am resolving")
+//         },n)
+//     })
+// }
+
+// (async (n=2)=>{
+//     let  e = await s(n)
+//     console.log(e)
+// })()
+
+// question 4
+// write a simple intrest calculator using javascript
+
+// const si = (p,r,t)=>{
+//     return new Promise((req,res)=>{
+//         let cal = p*r*t/100
+//         console.log("simple intrest: ",cal)
+//     })
+// }
+// si(20000,10,1)
